@@ -23,28 +23,40 @@ public class Alta_empleado extends JDialog {
 	private static final long serialVersionUID = 1L;
 	private final JPanel contentPanel = new JPanel();
     private String [] puestos={"","",""};
-    private javax.swing.JPanel bg;
-    private javax.swing.JButton btEnviar;
-    private javax.swing.JComboBox<String> jcPuesto;
-    private javax.swing.JLabel lblAntiguedad;
-    private javax.swing.JLabel lblApellidos;
-    private javax.swing.JLabel lblDni;
-    private javax.swing.JLabel lblEncabezado;
-    private javax.swing.JLabel lblNSeguridad;
-    private javax.swing.JLabel lblNombre;
-    private javax.swing.JLabel lblPaswd;
-    private javax.swing.JLabel lblPaswd2;
-    private javax.swing.JLabel lblPuesto;
-    private javax.swing.JTextField txtApellido;
-    private javax.swing.JTextField txtDni;
-    private javax.swing.JTextField txtNSeguridad;
-    private javax.swing.JTextField txtNombre;
-    private javax.swing.JTextField txtPaswd;
-    private javax.swing.JTextField txtPaswd2;
+    private JPanel bg;
+    private JButton btEnviar;
+    private JComboBox<String> jcPuesto;
+    private JLabel lblAntiguedad;
+    private JLabel lblApellidos;
+    private JLabel lblDni;
+    private JLabel lblEncabezado;
+    private JLabel lblNSeguridad;
+    private JLabel lblNombre;
+    private JLabel lblPaswd;
+    private JLabel lblPaswd2;
+    private JLabel lblPuesto;
+    private JTextField txtApellido;
+    private JTextField txtDni;
+    private JTextField txtNSeguridad;
+    private JTextField txtNombre;
+    private JTextField txtPaswd;
+    private JTextField txtPaswd2;
 
 	public Alta_empleado() {
-		initCOmponentes();
-	   // initEstilos();
+	     initCOmponentes();
+	     lblEncabezado.setText("AÑADIR EMPLEADO");
+	     btEnviar.setText("AÑADIR");
+	}
+	public Alta_empleado(Empleado emple) {
+	     initCOmponentes();
+	     lblEncabezado.setText("MODIFICAR EMPLEADO");
+	     btEnviar.setText("MODIFICAR");
+	     txtDni.enable(false);
+         selecCombo(jcPuesto,"");
+
+        
+	}
+	private void initCOmponentes() {
 		setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 		setMinimumSize(new Dimension(630, 390));
 		setResizable(false);
@@ -54,44 +66,44 @@ public class Alta_empleado extends JDialog {
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		contentPanel.setLayout(null);
 		
-		JLabel lblEncabezado = new JLabel("New label");
-		lblEncabezado.setBounds(228, 10, 206, 32);
+		lblEncabezado = new JLabel("New label");
+		lblEncabezado.setBounds(228, 10, 337, 32);
 		contentPanel.add(lblEncabezado);
 		
-		JLabel lblDni = new JLabel("DNI");
+		 lblDni = new JLabel("DNI");
 		lblDni.setBounds(68, 98, 45, 13);
 		contentPanel.add(lblDni);
 		
-		JLabel lblNombre = new JLabel("Nombre");
+		 lblNombre = new JLabel("Nombre");
 		lblNombre.setBounds(249, 98, 45, 13);
 		contentPanel.add(lblNombre);
 		
-		JLabel lblApellidos = new JLabel("Apellidos");
+		 lblApellidos = new JLabel("Apellidos");
 		lblApellidos.setBounds(435, 98, 45, 13);
 		contentPanel.add(lblApellidos);
 		
-		JLabel lblPuesto = new JLabel("Puesto");
+		 lblPuesto = new JLabel("Puesto");
 		lblPuesto.setBounds(68, 182, 45, 13);
 		contentPanel.add(lblPuesto);
 		
-		JLabel lblAntiguedad = new JLabel("Antiguedad");
+		 lblAntiguedad = new JLabel("Antiguedad");
 		lblAntiguedad.setBounds(249, 182, 79, 13);
 		contentPanel.add(lblAntiguedad);
 		
-		JLabel lblNSeguridad = new JLabel("Nº Seguridad Social");
+		 lblNSeguridad = new JLabel("Nº Seguridad Social");
 		lblNSeguridad.setBounds(435, 182, 97, 13);
 		contentPanel.add(lblNSeguridad);
 		
-		JLabel lblPaswd = new JLabel("Contraseña");
+		 lblPaswd = new JLabel("Contraseña");
 		lblPaswd.setBounds(249, 269, 79, 13);
 		contentPanel.add(lblPaswd);
 		
-		JLabel lblPaswd2 = new JLabel("Confirma la contraseña");
+		 lblPaswd2 = new JLabel("Confirma la contraseña");
 		lblPaswd2.setBounds(435, 269, 110, 13);
 		contentPanel.add(lblPaswd2);
 		setModal(true);
 		
-		JButton btEnviar = new JButton("New button");
+		 btEnviar = new JButton("New button");
 		btEnviar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				 if(btEnviar.getText().toString().equals("AÑADIR")){
@@ -113,7 +125,7 @@ public class Alta_empleado extends JDialog {
 		jdcAntiguedad.setBounds(245, 205, 130, 32);
 		contentPanel.add(jdcAntiguedad);
 		
-		JComboBox jcPuesto = new JComboBox();
+		 jcPuesto = new JComboBox();
 		jcPuesto.setBounds(68, 205, 130, 32);
 		contentPanel.add(jcPuesto);
 		
@@ -146,23 +158,7 @@ public class Alta_empleado extends JDialog {
 		txtPaswd.setColumns(10);
 		txtPaswd.setBounds(245, 285, 130, 32);
 		contentPanel.add(txtPaswd);
-	    lblEncabezado.setText("AÑADIR EMPLEADO");
-	    btEnviar.setText("AÑADIR");
-	}
-	public Alta_empleado(Empleado emple) {
-		initCOmponentes();
-        // initEstilos();
-         lblEncabezado.setText("MODIFICAR EMPLEADO");
-	     btEnviar.setText("MODIFICAR");
-	     txtDni.enable(false);
-         selecCombo(jcPuesto,"");
-	}
-	private void initCOmponentes() {
-	
-		
-	}
-	  private void initEstilos(){
-	        lblEncabezado.putClientProperty("FlatLaf.style", "font:bold  $h1.font");
+		 lblEncabezado.putClientProperty("FlatLaf.style", "font:bold  $h1.font");
 	        lblAntiguedad.putClientProperty("FlatLaf.style", "font:  $h4.font");
 	        lblDni.putClientProperty("FlatLaf.style", "font:  $h4.font");
 	        lblNSeguridad.putClientProperty("FlatLaf.style", "font:  $h4.font");
@@ -172,7 +168,7 @@ public class Alta_empleado extends JDialog {
 	        lblPaswd.putClientProperty("FlatLaf.style", "font:  $h4.font");
 	        lblPaswd2.putClientProperty("FlatLaf.style", "font:  $h4.font"); 
 	        llenarCombo(puestos,jcPuesto);
-	    }
+	}
 	 private boolean comprobarPaswd(){
 	        boolean dev=false;
 	        if(lblPaswd.getText().toString().equals(lblPaswd2.getText().toString())){

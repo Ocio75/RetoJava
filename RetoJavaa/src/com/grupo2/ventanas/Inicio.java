@@ -1,10 +1,14 @@
 package com.grupo2.ventanas;
+import com.grupo2.objetos.*;
 
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import com.grupo2.MensaEmergentes;
+
 import java.awt.Dimension;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -16,7 +20,6 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-
 public class Inicio extends JFrame {
 
 	private static final long serialVersionUID = 1L;
@@ -26,6 +29,10 @@ public class Inicio extends JFrame {
 
 	
 	public Inicio() {
+		 initComponetes() ;
+	}
+	
+	private void initComponetes() {
 		setMinimumSize(new Dimension(1280, 720));
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -41,6 +48,32 @@ public class Inicio extends JFrame {
 		contentPane.add(scrollPane);
 		
 		table = new JTable();
+		table.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+		        // int fila=jTable1.rowAtPoint(evt.getPoint());
+
+				 int control = MensaEmergentes.modificarEliminar(3, "Que desea hacer con \n " , "Informacion");
+				  if (control == 0) {
+				      Empleado emp = new Empleado();
+				      Alta_empleado p1 =new Alta_empleado(emp);
+				        p1.setLocationRelativeTo(null);
+				      p1.setVisible(true);
+				
+				  } else if (control == 1) {
+				      if (MensaEmergentes.siNo(2, "Desea eliminara a : ?", "ELiminar un contacto") == 0) {
+				          if (true/*delete.EliminarContacto(_id)*/) {
+				              MensaEmergentes.alerta(1, "Contacto borrado con exito", "Informacion");
+				          } else {
+				              MensaEmergentes.alerta(4, "Error no se a podido eliminar el contacto", "Error");
+				          }
+				      } else {
+				          MensaEmergentes.alerta(1, "Operacion cancelada", "Informacion");
+				      }
+				  } else {
+				  }  
+			}
+		});
 		table.setMinimumSize(new Dimension(525, 64));
 		scrollPane.setViewportView(table);
 
@@ -105,9 +138,6 @@ public class Inicio extends JFrame {
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btnNewButton.setBounds(1049, 58, 174, 52);
 		contentPane.add(btnNewButton);
-	}
-	private void initComponetes() {
-		
 		
 	}
 }
