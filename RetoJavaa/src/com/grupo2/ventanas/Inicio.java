@@ -125,8 +125,9 @@ public class Inicio extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				 Alta_empleado p1 = new Alta_empleado();
+			        p1.setLocationRelativeTo(null);
+
 			     p1.setVisible(true);
-			     p1.setLocationRelativeTo(null);
 			}
 		});
 		btnNewButton.addActionListener(new ActionListener() {

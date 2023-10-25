@@ -6,11 +6,11 @@ import java.util.Date;
  * Clase que representa a un empleado con atributos como DNI, puesto, nombre, apellidos, antigüedad, número de seguridad social y contraseña.
  */
 public class Empleado {
-    private String dni;
+    private int dni;
     private String puesto;
     private String nombre;
     private String apellidos;
-    private Date antiguedad;
+    private int antiguedad;
     private int nSeguridadSocial;
     private String paswd;
 
@@ -21,11 +21,11 @@ public class Empleado {
      * @param puesto            El puesto o cargo del empleado.
      * @param nombre            El nombre del empleado.
      * @param apellidos         Los apellidos del empleado.
-     * @param antiguedad        La fecha de antigüedad del empleado.
+     * @param antiguedad        La antigüedad del empleado en años.
      * @param nSeguridadSocial  El número de seguridad social del empleado.
      * @param paswd             La contraseña del empleado.
      */
-    public Empleado(String dni, String puesto, String nombre, String apellidos, Date antiguedad, int nSeguridadSocial, String paswd) {
+    public Empleado(int dni, String puesto, String nombre, String apellidos, int antiguedad, int nSeguridadSocial, String paswd) {
         this.dni = dni;
         this.puesto = puesto;
         this.nombre = nombre;
@@ -46,7 +46,7 @@ public class Empleado {
      *
      * @return El número de DNI del empleado.
      */
-    public String getDni() {
+    public int getDni() {
         return dni;
     }
 
@@ -55,7 +55,7 @@ public class Empleado {
      *
      * @param dni El número de DNI a establecer.
      */
-    public void setDni(String dni) {
+    public void setDni(int dni) {
         this.dni = dni;
     }
 
@@ -114,20 +114,20 @@ public class Empleado {
     }
 
     /**
-     * Obtiene la fecha de antigüedad del empleado.
+     * Obtiene la antigüedad del empleado en años.
      *
-     * @return La fecha de antigüedad del empleado.
+     * @return La antigüedad del empleado en años.
      */
-    public Date getAntiguedad() {
+    public int getAntiguedad() {
         return antiguedad;
     }
 
     /**
-     * Establece la fecha de antigüedad del empleado.
+     * Establece la antigüedad del empleado en años.
      *
-     * @param antiguedad La fecha de antigüedad a establecer.
+     * @param antiguedad La antigüedad a establecer.
      */
-    public void setAntiguedad(Date antiguedad) {
+    public void setAntiguedad(int antiguedad) {
         this.antiguedad = antiguedad;
     }
 
